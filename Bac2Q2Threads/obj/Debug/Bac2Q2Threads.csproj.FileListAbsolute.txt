@@ -1,0 +1,6 @@
+C:\Users\winmo\RiderProjects\Bac2Q2Threads\Bac2Q2Threads\bin\Debug\Bac2Q2Threads.exe
+C:\Users\winmo\RiderProjects\Bac2Q2Threads\Bac2Q2Threads\bin\Debug\Bac2Q2Threads.pdb
+C:\Users\winmo\RiderProjects\Bac2Q2Threads\Bac2Q2Threads\obj\Debug\Bac2Q2Threads.csprojAssemblyReference.cache
+C:\Users\winmo\RiderProjects\Bac2Q2Threads\Bac2Q2Threads\obj\Debug\Bac2Q2Threads.csproj.CoreCompileInputs.cache
+C:\Users\winmo\RiderProjects\Bac2Q2Threads\Bac2Q2Threads\obj\Debug\Bac2Q2Threads.exe
+C:\Users\winmo\RiderProjects\Bac2Q2Threads\Bac2Q2Threads\obj\Debug\Bac2Q2Threads.pdb
