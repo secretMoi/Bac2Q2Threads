@@ -6,6 +6,9 @@ namespace Bac2Q2Threads
     internal class Program
     {
         private static int iCommun;
+        // mutex sous forme de file, le suivant à demander sera mis en file d'attente FIFO
+        // permet de bloquer les threads qui se partagent ce même verrou et laisser libres les autres => moins contraignant que le lock
+        private static ReaderWriterLock readerWriterLock = new ReaderWriterLock(); 
         
         public static void Main(string[] args)
         {
@@ -27,14 +30,15 @@ namespace Bac2Q2Threads
             int n;
             
             for (int i = 0; i < 500; i++)
-                lock (typeof(Program))
-                {
-                    n = iCommun;
-                    n++;
-                    Console.Write("A{0, -5}", iCommun); // -5 => codé sur 5 caractères, remplit le reste avec des espaces
+            {
+                readerWriterLock.AcquireWriterLock(-1);
+                n = iCommun;
+                n++;
+                Console.Write("A{0, -5}", iCommun); // -5 => codé sur 5 caractères, remplit le reste avec des espaces
 
-                    iCommun = n;
-                }
+                iCommun = n;
+                readerWriterLock.ReleaseWriterLock();
+            }
         }
 
         private static void B()
@@ -42,14 +46,15 @@ namespace Bac2Q2Threads
             int n;
             
             for (int i = 0; i < 500; i++)
-                lock (typeof(Program))
-                {
-                    n = iCommun;
-                    n++;
-                    Console.Write("B{0, -5}", iCommun);
-                    
-                    iCommun = n;
-                }
+            {
+                readerWriterLock.AcquireWriterLock(-1);
+                n = iCommun;
+                n++;
+                Console.Write("B{0, -5}", iCommun);
+                
+                iCommun = n;
+                readerWriterLock.ReleaseWriterLock();
+            }
         }
     }
 }
